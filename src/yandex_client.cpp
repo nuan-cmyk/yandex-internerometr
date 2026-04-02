@@ -285,7 +285,7 @@ std::optional<ISPInfo> Client::GetISP(OperationContext& ctx) const {
         info.asn = std::stoi(asn_match[1].str());
     }
 
-    static const std::regex isp_re(R"("operatorName":"([^"]*)")");
+    static const std::regex isp_re(R"###("operatorName":"([^"]*)")###");
     std::smatch isp_match;
     if (std::regex_search(html, isp_match, isp_re) && isp_match.size() > 1) {
         info.name = isp_match[1].str();
